@@ -1,0 +1,13 @@
+# Dependencies
+**/node_modules/
+node_modules/
+dist/
+build/
+cilent/dist/
+.env
+server/skillbridge-ai-backend/.env
+npm-debug.log*
+logs
+*.log
+.DS_Store
+Thumbs.db
