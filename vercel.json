@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd cilent && npm install && npm run build",
+  "outputDirectory": "cilent/dist",
+  "installCommand": "echo 'skip root install'",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
