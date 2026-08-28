@@ -6,7 +6,17 @@ function Sidebar({ collapsed = false, mobileOpen = false, onToggle, onClose }) {
     const menuItems = [
         { name: "Dashboard", path: "/student", icon: "bi-speedometer2" },
         { name: "Career Recommendation", path: "/student/career-recommendation", icon: "bi-stars" },
-        { name: "Resume Builder", path: "/student/resume-builder", icon: "bi-file-earmark-person" },
+        {
+            name: "Resume Builder",
+            path: "/student/resume-builder",
+            icon: "bi-file-earmark-person"
+        },
+
+        {
+            name: "Resume Analyzer",
+            path: "/student/resume-analyze",
+            icon: "bi-file-earmark-check"
+        },
         { name: "Internships", path: "/student/internships", icon: "bi-briefcase" },
         { name: "Find Mentors", path: "/student/mentors", icon: "bi-person-workspace" },
         { name: "My Mentors", path: "/student/my-mentors", icon: "bi-people" },

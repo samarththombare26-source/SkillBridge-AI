@@ -27,6 +27,7 @@ const conversationRoutes = require("./routes/conversationRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
 const careerRoutes = require("./routes/careerRoutes");
+const aiRoutes = require("./routes/aiRoutes");
 
 
 // ==========================================
@@ -285,6 +286,7 @@ app.use(
 );
 
 app.use("/api/career", careerRoutes);
+app.use("/api/ai", aiRoutes);
 
 // ==========================================
 // TEST API

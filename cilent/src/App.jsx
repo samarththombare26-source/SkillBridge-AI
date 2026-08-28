@@ -28,6 +28,7 @@ import CareerRecommendation from "./pages/Student/CareerRecommendation";
 import Certificates from "./pages/Student/Certificates";
 import SkillQuiz from "./pages/Student/SkillQuiz";
 import SavedItems from "./pages/Student/SavedItems";
+import ResumeAnalyzer from "./pages/Student/ResumeAnalyzer";
 
 import MentorLayout from "./layouts/MentorLayout";
 import MentorDashboard from "./pages/Mentor/MentorDashboard";
@@ -89,6 +90,7 @@ function App() {
                 <Route path="certificates" element={<Certificates />} />
                 <Route path="skill-quiz" element={<SkillQuiz />} />
                 <Route path="saved" element={<SavedItems />} />
+                <Route path="resume-analyze" element={<ResumeAnalyzer />} />
                 <Route path="conversation/:conversationId" element={<StudentConversation />} />
                 <Route path="career-recommendation" element={<CareerRecommendation />} />
             </Route>

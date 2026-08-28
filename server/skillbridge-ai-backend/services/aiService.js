@@ -205,9 +205,67 @@ Rules: 4 options each, exactly 1 correctAnswer must match one of the options ver
     }
 }
 
+async function analyzeResumeAI({ resumeText, targetRole = "Software Developer" }) {
+    const apiKey = getGeminiKey();
+    if (!apiKey || apiKey.includes("your_") || apiKey.trim() === "") {
+        // Fallback mock analysis
+        const score = Math.min(92, 58 + Math.floor(resumeText.length / 40));
+        return {
+            score, atsScore: score, level: score >= 80 ? "Excellent" : score >= 60 ? "Good" : "Needs Work",
+            strengths: ["Clear formatting", "Relevant skills listed"],
+            weaknesses: ["Add more quantifiable achievements", "Include keywords for ATS"],
+            missingKeywords: ["Teamwork", "Communication"],
+            suggestions: ["Add metrics: e.g. 'Improved performance by 30%'", "Add 2-3 relevant projects with tech stack"],
+            source: "fallback", isTrueAI: false
+        };
+    }
+    const prompt = `You are an ATS resume analyzer for SkillBridgeAI.
+Target Role: ${targetRole}
+Resume Text:
+"""
+${resumeText.slice(0, 4000)}
+"""
+Task: Analyze like a real ATS + hiring manager for Indian job market 2025.
+Return ONLY valid JSON (no markdown) in this format:
+{
+  "score": 78,
+  "atsScore": 78,
+  "level": "Good",
+  "strengths": ["2-3 strengths"],
+  "weaknesses": ["2-3 weaknesses"],
+  "missingKeywords": ["3-5 important keywords missing for this role"],
+  "suggestions": ["3-4 specific actionable improvements"]
+}
+Rules: score 0-100, level: Excellent >=80, Good >=60 else Needs Work. Be specific to resume content and target role. No extra text.`;
+
+    try {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
+        const res = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { temperature: 0.6, maxOutputTokens: 1000 } })
+        });
+        if (!res.ok) throw new Error(`Gemini ${res.status}`);
+        const data = await res.json();
+        const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+        let jsonStr = text.trim();
+        const m = jsonStr.match(/```json\s*([\s\S]*?)\s*```/) || jsonStr.match(/```\s*([\s\S]*?)\s*```/);
+        if (m) jsonStr = m[1];
+        const first = jsonStr.indexOf("{"); const last = jsonStr.lastIndexOf("}");
+        if (first !== -1) jsonStr = jsonStr.slice(first, last + 1);
+        const parsed = JSON.parse(jsonStr);
+        console.log(`Gemini resume analysis score ${parsed.score} (true AI)`);
+        return { ...parsed, source: "gemini", isTrueAI: true };
+    } catch (err) {
+        console.error("Gemini resume analyze failed, fallback:", err.message);
+        return { score: 72, atsScore: 72, level: "Good", strengths: ["Relevant skills"], weaknesses: ["Add metrics"], missingKeywords: ["Communication"], suggestions: ["Add projects"], source: "fallback", isTrueAI: false, error: err.message };
+    }
+}
+
 module.exports = {
     generateWithGemini,
     fallbackRecommendations,
     getGeminiKey,
-    generateSkillQuiz
+    generateSkillQuiz,
+    analyzeResumeAI
 };

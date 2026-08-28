@@ -1407,7 +1407,7 @@ function ResumeBuilder() {
                     SAVE BUTTON
                 ====================================== */}
 
-                <div className="text-center mb-5">
+                <div className="text-center mb-5 d-flex flex-wrap justify-content-center gap-2">
 
                     <button
                         type="submit"
@@ -1424,12 +1424,22 @@ function ResumeBuilder() {
 
                     <button
                         type="button"
-                        className="btn btn-success btn-lg px-5 ms-2"
+                        className="btn btn-success btn-lg px-5"
                         onClick={() =>
                             navigate("/student/resume-preview")
                         }
                     >
                          Preview Resume
+                    </button>
+
+                    <button
+                        type="button"
+                        className="btn btn-info text-white btn-lg px-4"
+                        onClick={() =>
+                            navigate("/student/resume-analyze")
+                        }
+                    >
+                        <i className="bi bi-stars me-2"></i>AI Analyze
                     </button>
 
                 </div>

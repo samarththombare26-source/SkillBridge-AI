@@ -724,6 +724,27 @@ function StudentDashboard() {
                 </div>
             </div>
 
+            <div className="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden">
+                <div className="card-body p-4" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)" }}>
+                    <div className="row align-items-center">
+                        <div className="col-md-8 text-white">
+                            <div className="d-flex align-items-center gap-2 mb-2">
+                                <span className="badge bg-white text-primary"><i className="bi bi-stars me-1"></i> New AI Feature</span>
+                                <span className="badge bg-success">ATS Score</span>
+                            </div>
+                            <h5 className="fw-bold mb-1"><i className="bi bi-file-earmark-check me-2"></i>AI Resume Analyzer</h5>
+                            <p className="mb-3 opacity-75 small">Get instant ATS score, missing keywords and fix suggestions — powered by Gemini AI. Paste your resume and get feedback in seconds.</p>
+                            <button className="btn btn-light text-primary fw-bold btn-sm" onClick={() => navigate("/student/resume-analyze")}>Analyze Resume <i className="bi bi-arrow-right ms-2"></i></button>
+                        </div>
+                        <div className="col-md-4 text-center d-none d-md-block">
+                            <div className="bg-white bg-opacity-10 rounded-4 p-3 d-inline-block">
+                                <div className="fw-bold fs-2">92</div><small className="opacity-75">ATS Score</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {/* ==================================
                 AVAILABLE COURSES
             ================================== */}
