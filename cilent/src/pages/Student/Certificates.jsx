@@ -215,8 +215,8 @@ function Certificates() {
 
                         {certificates.map((cert, index) => (
 
-                            <div
-                                className="col-md-6 col-xl-4"
+                                <div
+                                className="col-12 col-sm-6 col-xl-4"
                                 key={index}
                             >
 
@@ -267,7 +267,7 @@ function Certificates() {
 
                                         </p>
 
-                                        <div className="d-flex gap-2">
+                                        <div className="d-flex gap-2 flex-wrap">
 
                                             <button
                                                 className="btn btn-primary flex-fill"

@@ -295,7 +295,7 @@ function CreateLesson() {
                         </div>
 
 
-                        <div className="row">
+                        <div className="row g-3">
 
 
                             {/* Order */}

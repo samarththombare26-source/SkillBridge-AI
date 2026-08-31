@@ -18,9 +18,9 @@ function Features() {
                     <h2 className="section-title display-6 mt-3">Everything You Need to <span className="gradient-text">Get Hired</span></h2>
                     <p className="section-sub mt-2">Six powerful tools working together to make you industry-ready.</p>
                 </div>
-                <div className="row g-4">
+                <div className="row g-3 g-md-4">
                     {features.map((f, i) => (
-                        <div className="col-md-6 col-lg-4" key={i}>
+                        <div className="col-12 col-sm-6 col-lg-4" key={i}>
                             <div className="feature-card" role="button" onClick={() => navigate(f.route)} style={{ cursor: "pointer" }}>
                                 <div className={`feature-icon ${f.bg}`} style={{ width: "60px", height: "60px", fontSize: "1.4rem" }}>{f.icon}</div>
                                 <h5 className="fw-bold">{f.title}</h5>

@@ -69,15 +69,15 @@ function Internships() {
 
     return (
 
-        <div className="container py-5">
+        <div className="container py-4 py-md-5">
 
-            <div className="mb-4">
+            <div className="mb-4 text-center text-md-start">
 
-                <h2>
+                <h2 className="fw-bold" style={{ fontSize: "clamp(1.4rem,3vw,1.75rem)" }}>
                     Internship Opportunities
                 </h2>
 
-                <p className="text-muted">
+                <p className="text-muted mb-0">
                     Explore internships and find the
                     right opportunity for you.
                 </p>
@@ -93,12 +93,12 @@ function Internships() {
 
             ) : (
 
-                <div className="row">
+                <div className="row g-3 g-md-4">
 
                     {internships.map((internship) => (
 
                         <div
-                            className="col-md-6 col-lg-4 mb-4"
+                            className="col-12 col-sm-6 col-lg-4"
                             key={internship._id}
                         >
 
@@ -124,7 +124,7 @@ function Internships() {
                                     </h6>
 
 
-                                    <p className="card-text mt-3">
+                                    <p className="card-text mt-3 text-clamp-3" style={{ fontSize: "0.92rem" }}>
                                         {internship.description}
                                     </p>
 
@@ -181,7 +181,7 @@ function Internships() {
                                     </div>
 
 
-                                    <div className="d-flex gap-2">
+                                    <div className="d-flex gap-2 flex-wrap">
                                         <button
                                             className="btn btn-primary flex-fill"
                                             onClick={() =>
@@ -193,7 +193,7 @@ function Internships() {
                                             View Internship
                                         </button>
                                         <button
-                                            className={`btn ${isSaved("internships", internship._id) ? "btn-warning" : "btn-outline-secondary"}`}
+                                            className={`btn flex-shrink-0 ${isSaved("internships", internship._id) ? "btn-warning" : "btn-outline-secondary"}`}
                                             onClick={() => { toggleSave("internships", internship); forceUpdate((x) => x + 1); }}
                                             title={isSaved("internships", internship._id) ? "Saved" : "Save"}
                                         >

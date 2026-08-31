@@ -40,8 +40,8 @@ function Sidebar({ collapsed = false, mobileOpen = false, onToggle, onClose }) {
             </div>
             {collapsed && !mobileOpen && <div className="text-center"><small className="sidebar-brand" style={{ fontSize: "0.75rem" }}>SB</small></div>}
             <hr className="border-secondary opacity-25 mx-3 my-2" />
-            <div className="px-2 flex-grow-1 overflow-auto">
-                {(!collapsed || mobileOpen) && <small className="sidebar-section px-2">Main Menu</small>}
+            <div className="px-2 sidebar-scroll">
+                {(!collapsed || mobileOpen) && <small className="sidebar-section px-2 opacity-75" style={{ fontSize: "0.7rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Main Menu</small>}
                 <nav className="nav flex-column gap-1 mt-2">
                     {menuItems.map((item) => (
                         <Link key={item.path} to={item.path} onClick={mobileOpen ? onClose : undefined} className={`sidebar-link ${isActive(item.path) ? "active" : ""} ${collapsed && !mobileOpen ? "justify-content-center" : ""}`} title={collapsed && !mobileOpen ? item.name : undefined}>
@@ -51,10 +51,9 @@ function Sidebar({ collapsed = false, mobileOpen = false, onToggle, onClose }) {
                     ))}
                 </nav>
             </div>
-            <div className="p-2 mt-auto">
-                <hr className="border-secondary opacity-25" />
-                <button className={`sidebar-footer-btn ${collapsed && !mobileOpen ? "justify-content-center" : ""}`}><i className="bi bi-question-circle"></i><span className="sidebar-brand-text">{(!collapsed || mobileOpen) && "Help & Support"}</span></button>
-                <button className={`sidebar-footer-btn danger ${collapsed && !mobileOpen ? "justify-content-center" : ""}`} onClick={handleLogout}><i className="bi bi-box-arrow-right"></i><span className="sidebar-brand-text">{(!collapsed || mobileOpen) && "Logout"}</span></button>
+            <div className="sidebar-footer p-3">
+                <button className={`sidebar-footer-btn ${collapsed && !mobileOpen ? "justify-content-center" : ""}`}><i className="bi bi-question-circle"></i><span>{(!collapsed || mobileOpen) && "Help & Support"}</span></button>
+                <button className={`sidebar-footer-btn danger ${collapsed && !mobileOpen ? "justify-content-center" : ""}`} onClick={handleLogout}><i className="bi bi-box-arrow-right"></i><span>{(!collapsed || mobileOpen) && "Logout"}</span></button>
             </div>
         </aside>
     );

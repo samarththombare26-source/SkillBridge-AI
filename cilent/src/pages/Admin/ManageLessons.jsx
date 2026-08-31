@@ -179,12 +179,12 @@ function ManageLessons() {
 
     return (
 
-        <div className="container mt-5">
+        <div className="container py-4 py-md-5">
 
 
             {/* HEADER */}
 
-            <div className="d-flex justify-content-between align-items-center mb-4">
+            <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
 
                 <h2>
                     Manage Lessons
@@ -329,7 +329,7 @@ function ManageLessons() {
                             </div>
 
 
-                            <div className="row">
+                            <div className="row g-3">
 
 
                                 {/* Order */}
@@ -498,12 +498,12 @@ function ManageLessons() {
 
             ) : (
 
-                <div className="row">
+                <div className="row g-4">
 
                     {lessons.map((lesson) => (
 
                         <div
-                            className="col-md-6 mb-4"
+                            className="col-12 col-sm-6 col-lg-4"
                             key={lesson._id}
                         >
 

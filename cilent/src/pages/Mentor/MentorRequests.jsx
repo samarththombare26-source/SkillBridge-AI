@@ -553,7 +553,7 @@ function MentorRequests() {
                                         {request.status ===
                                             "Pending" && (
 
-                                            <div className="d-flex gap-2">
+                                            <div className="d-flex gap-2 flex-wrap">
 
                                                 <button
                                                     className="btn btn-success flex-fill"

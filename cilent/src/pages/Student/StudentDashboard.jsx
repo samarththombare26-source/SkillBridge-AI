@@ -579,7 +579,7 @@ function StudentDashboard() {
                         courses.map((course) => (
 
                             <div
-                                className="col-md-6 col-xl-4"
+                                className="col-12 col-sm-6 col-xl-4"
                                 key={course._id}
                             >
 
@@ -587,7 +587,7 @@ function StudentDashboard() {
 
                                     <div className="card-body p-4">
 
-                                        <div className="d-flex justify-content-between align-items-start mb-3">
+                                        <div className="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
                                             <span className="badge bg-primary bg-opacity-10 text-primary">
                                                 {course.category}
                                             </span>
@@ -804,7 +804,7 @@ function StudentDashboard() {
                         {enrolledCourses.map((enrollment) => (
 
                             <div
-                                className="col-md-6 col-xl-4"
+                                className="col-12 col-sm-6 col-xl-4"
                                 key={enrollment._id}
                             >
 
@@ -812,7 +812,7 @@ function StudentDashboard() {
 
                                     <div className="card-body p-4">
 
-                                        <div className="d-flex justify-content-between align-items-start mb-3">
+                                        <div className="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
 
                                             <h5 className="fw-bold mb-0">
 

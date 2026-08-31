@@ -17,9 +17,9 @@ function Process() {
                     <h2 className="section-title display-6 mt-3">Your Career Journey in <span className="gradient-text">6 Steps</span></h2>
                     <p className="section-sub">From sign-up to your first offer letter — we guide you all the way.</p>
                 </div>
-                <div className="row g-4">
+                <div className="row g-3 g-md-4">
                     {steps.map((s, i) => (
-                        <div className="col-md-6 col-lg-4" key={i}>
+                        <div className="col-12 col-sm-6 col-lg-4" key={i}>
                             <div className="process-card">
                                 <div className="process-number">{i + 1}</div>
                                 <div className="process-icon">{s.icon}</div>

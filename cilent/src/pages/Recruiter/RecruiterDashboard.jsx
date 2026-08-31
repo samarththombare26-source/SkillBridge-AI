@@ -42,7 +42,7 @@ function RecruiterDashboard() {
 
     if (loading) {
         return (
-            <div className="container py-5 text-center">
+            <div className="container py-4 py-md-5 text-center">
                 <div className="spinner-border text-primary" role="status" />
                 <p className="text-muted mt-3">Loading recruiter dashboard...</p>
             </div>
@@ -51,7 +51,7 @@ function RecruiterDashboard() {
 
     return (
         <div className="container-fluid py-4">
-            <div className="d-flex justify-content-between align-items-start mb-4 flex-wrap gap-3">
+            <div className="d-flex justify-content-between align-items-start mb-4 flex-wrap gap-3 flex-column flex-sm-row">
                 <div>
                     <h3 className="fw-bold mb-1">Recruiter Dashboard</h3>
                     <p className="text-muted mb-0">Welcome, {user?.name || "Recruiter"} — manage internships and applications.</p>
@@ -87,7 +87,7 @@ function RecruiterDashboard() {
                         <div className="card-body p-4">
                             <p className="text-muted small mb-2">Quick Actions</p>
                             <div className="d-flex flex-wrap gap-2">
-                                <Link to="/admin/create-internship" className="btn btn-primary btn-sm">Post Internship</Link>
+                                <Link to="/admin/create-internship" className="btn btn-primary btn-sm flex-fill flex-sm-grow-0">Post Internship</Link>
                                 <Link to="/" className="btn btn-outline-secondary btn-sm">View Landing</Link>
                             </div>
                         </div>

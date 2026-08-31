@@ -59,11 +59,11 @@ function CreateCourse() {
 
     return (
 
-        <div className="container mt-5">
+        <div className="container py-4 py-md-5">
 
             <div className="card shadow">
 
-                <div className="card-body">
+                <div className="card-body p-3 p-md-4 p-lg-5">
 
                     <h2 className="mb-4">
                         Create New Course
@@ -154,7 +154,7 @@ function CreateCourse() {
                         </div>
 
 
-                        <div className="row">
+                        <div className="row g-3">
 
                             {/* Duration */}
 

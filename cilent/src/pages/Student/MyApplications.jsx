@@ -48,7 +48,7 @@ function MyApplications() {
     if (loading) {
 
         return (
-            <div className="container mt-5">
+            <div className="container py-4 py-md-5">
                 <h4>Loading applications...</h4>
             </div>
         );
@@ -58,7 +58,7 @@ function MyApplications() {
 
     return (
 
-        <div className="container py-5">
+        <div className="container py-4 py-md-5">
 
             <button
                 className="btn btn-secondary mb-4"
@@ -89,12 +89,12 @@ function MyApplications() {
 
             ) : (
 
-                <div className="row mt-4">
+                <div className="row g-3 mt-4">
 
                     {applications.map((application) => (
 
                         <div
-                            className="col-md-6 mb-4"
+                            className="col-12 col-md-6"
                             key={application._id}
                         >
 

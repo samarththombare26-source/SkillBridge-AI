@@ -62,7 +62,7 @@ function MyMentors() {
 
         return (
 
-            <div className="container py-5">
+            <div className="container py-4 py-md-5">
 
                 <div className="text-center py-5">
 
@@ -86,11 +86,11 @@ function MyMentors() {
 
     return (
 
-        <div className="container py-5">
+        <div className="container py-4 py-md-5">
 
             {/* Header */}
 
-            <div className="d-flex justify-content-between align-items-center mb-4">
+            <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
 
                 <div>
 
@@ -182,7 +182,7 @@ function MyMentors() {
                         {mentors.map((mentor) => (
 
                             <div
-                                className="col-md-6 col-lg-4"
+                                className="col-12 col-sm-6 col-lg-4"
                                 key={mentor._id}
                             >
 

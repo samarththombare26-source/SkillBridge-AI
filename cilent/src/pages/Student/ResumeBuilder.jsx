@@ -592,9 +592,9 @@ function ResumeBuilder() {
 
     return (
 
-        <div className="container">
+        <div className="container py-3 py-md-4">
 
-            <h1 className="mb-2">
+            <h1 className="mb-2" style={{ fontSize: "clamp(1.4rem,3vw,1.85rem)" }}>
                 Resume Builder
             </h1>
 
@@ -1407,11 +1407,11 @@ function ResumeBuilder() {
                     SAVE BUTTON
                 ====================================== */}
 
-                <div className="text-center mb-5 d-flex flex-wrap justify-content-center gap-2">
+                <div className="d-flex flex-column flex-sm-row flex-wrap justify-content-center gap-2 gap-md-3 mb-5">
 
                     <button
                         type="submit"
-                        className="btn btn-primary btn-lg px-5"
+                        className="btn btn-primary btn-lg px-4 flex-fill flex-sm-grow-0"
                         disabled={saving}
                     >
 
@@ -1424,7 +1424,7 @@ function ResumeBuilder() {
 
                     <button
                         type="button"
-                        className="btn btn-success btn-lg px-5"
+                        className="btn btn-success btn-lg px-4 flex-fill flex-sm-grow-0"
                         onClick={() =>
                             navigate("/student/resume-preview")
                         }
@@ -1434,7 +1434,7 @@ function ResumeBuilder() {
 
                     <button
                         type="button"
-                        className="btn btn-info text-white btn-lg px-4"
+                        className="btn btn-info text-white btn-lg px-4 flex-fill flex-sm-grow-0"
                         onClick={() =>
                             navigate("/student/resume-analyze")
                         }

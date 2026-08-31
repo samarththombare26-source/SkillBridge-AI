@@ -95,7 +95,7 @@ function MentorDetails() {
 
         return (
 
-            <div className="container py-5">
+            <div className="container py-4 py-md-5">
 
                 <div className="text-center py-5">
 
@@ -125,7 +125,7 @@ function MentorDetails() {
 
         return (
 
-            <div className="container py-5">
+            <div className="container py-4 py-md-5">
 
                 <div className="alert alert-danger">
                     {error}
@@ -153,7 +153,7 @@ function MentorDetails() {
 
         return (
 
-            <div className="container py-5">
+            <div className="container py-4 py-md-5">
 
                 <div className="alert alert-warning">
                     Mentor profile not found.
@@ -183,7 +183,7 @@ function MentorDetails() {
 
     return (
 
-        <div className="container py-5">
+        <div className="container py-4 py-md-5">
 
             {/* ==================================
                 BACK BUTTON

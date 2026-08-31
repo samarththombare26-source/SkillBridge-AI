@@ -59,7 +59,7 @@ function CareerRoadmapDetails() {
 
         return (
 
-            <div className="container py-5 text-center">
+            <div className="container py-4 py-md-5 text-center">
 
                 <h4>
                     Loading roadmap...
@@ -76,7 +76,7 @@ function CareerRoadmapDetails() {
 
         return (
 
-            <div className="container py-5">
+            <div className="container py-4 py-md-5">
 
                 <div className="alert alert-danger">
 
@@ -105,7 +105,7 @@ function CareerRoadmapDetails() {
 
     return (
 
-        <div className="container py-5">
+        <div className="container py-4 py-md-5">
 
             {/* BACK BUTTON */}
 
@@ -125,7 +125,7 @@ function CareerRoadmapDetails() {
 
             <div className="card shadow-sm mb-4">
 
-                <div className="card-body">
+                    <div className="card-body p-3 p-md-4">
 
                     <span className="badge bg-primary mb-3">
 
@@ -207,9 +207,9 @@ function CareerRoadmapDetails() {
                         key={index}
                     >
 
-                        <div className="card-body">
+                        <div className="card-body p-3 p-md-4">
 
-                            <div className="d-flex">
+                            <div className="d-flex flex-wrap gap-2">
 
                                 <div
                                     className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"

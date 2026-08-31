@@ -15,7 +15,7 @@ function Testimonials() {
                 </div>
                 <div className="row g-4">
                     {testimonials.map((t, i) => (
-                        <div className="col-md-6 col-lg-4" key={i}>
+                        <div className="col-12 col-sm-6 col-lg-4" key={i}>
                             <div className="testimonial-card">
                                 <FaQuoteLeft className="quote-icon" />
                                 <div className="stars"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></div>

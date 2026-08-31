@@ -165,7 +165,7 @@ function CourseLearning() {
 
         <div className="container-fluid">
 
-            <div className="row">
+            <div className="row g-3">
 
                 {/* Lessons Sidebar */}
 

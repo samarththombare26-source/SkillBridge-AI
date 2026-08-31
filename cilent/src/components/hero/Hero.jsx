@@ -3,22 +3,22 @@ function Hero() {
     return (
         <section id="home" className="hero-section">
             <div className="container position-relative">
-                <div className="row align-items-center">
-                    <div className="col-lg-6">
+                <div className="row align-items-center g-4">
+                    <div className="col-12 col-lg-6 text-center text-lg-start">
                         <span className="hero-badge"><i className="bi bi-stars"></i> AI-Powered Career Platform</span>
-                        <h1 className="hero-title mt-4">Build Your Career <span className="gradient-text">with AI</span></h1>
-                        <p className="hero-subtitle mt-3">Discover internships, analyze your skill gaps, build professional resumes and get mentored by industry experts — all in one platform.</p>
-                        <div className="d-flex flex-wrap gap-3 mt-4">
+                        <h1 className="hero-title mt-3 mt-md-4">Build Your Career <span className="gradient-text">with AI</span></h1>
+                        <p className="hero-subtitle mt-3 mx-auto mx-lg-0">Discover internships, analyze your skill gaps, build professional resumes and get mentored by industry experts — all in one platform.</p>
+                        <div className="d-flex flex-column flex-sm-row flex-wrap gap-3 mt-4 justify-content-center justify-content-lg-start">
                             <Link to="/register" className="btn btn-grad btn-lg">Get Started Free <i className="bi bi-arrow-right ms-2"></i></Link>
                             <a href="#features" className="btn btn-ghost btn-lg">Explore Features</a>
                         </div>
-                        <div className="row mt-5 text-start hero-stat" style={{ maxWidth: "420px" }}>
+                        <div className="row mt-4 mt-md-5 text-center text-lg-start hero-stat mx-auto mx-lg-0" style={{ maxWidth: "420px" }}>
                             <div className="col-4"><h3>10K+</h3><small>Active Students</small></div>
                             <div className="col-4"><h3>500+</h3><small>Companies</small></div>
                             <div className="col-4"><h3>95%</h3><small>Success Rate</small></div>
                         </div>
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-12 col-lg-6">
                         <div className="hero-visual mx-auto" style={{ maxWidth: "520px" }}>
                             <div className="float-chip chip-1"><span className="fc-icon" style={{ background: "rgba(16, 185, 129, 0.12)", color: "#059669" }}><i className="bi bi-file-earmark-check"></i></span>Resume Score <span className="text-success">92%</span></div>
                             <div className="float-chip chip-2"><span className="fc-icon" style={{ background: "rgba(37, 99, 235, 0.1)", color: "#2563eb" }}><i className="bi bi-person-workspace"></i></span>Mentor Connected <i className="bi bi-check-circle-fill text-primary"></i></div>

@@ -151,7 +151,7 @@ function CareerRecommendation() {
                     HEADER
                 ========================================== */}
 
-                <div className="d-flex justify-content-between align-items-center mb-4">
+                <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
 
                     <div>
 
@@ -557,7 +557,7 @@ function CareerRecommendation() {
 
                         <div className="card-body p-4">
 
-                            <div className="mb-4 d-flex justify-content-between align-items-start">
+                            <div className="mb-4 d-flex justify-content-between align-items-start flex-wrap gap-2">
 
                                 <div>
 

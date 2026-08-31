@@ -58,7 +58,7 @@ function InternshipDetails() {
     if (loading) {
 
         return (
-            <div className="container mt-5">
+            <div className="container py-4 py-md-5">
                 <h4>Loading internship...</h4>
             </div>
         );
@@ -73,7 +73,7 @@ function InternshipDetails() {
     if (!internship) {
 
         return (
-            <div className="container mt-5">
+            <div className="container py-4 py-md-5">
 
                 <div className="alert alert-danger">
                     Internship not found.
@@ -127,7 +127,7 @@ function InternshipDetails() {
 
     return (
 
-        <div className="container py-5">
+        <div className="container py-4 py-md-5">
 
             {/* BACK BUTTON */}
 
@@ -147,7 +147,7 @@ function InternshipDetails() {
 
                 <div className="card-body p-4">
 
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between flex-wrap gap-2">
 
                         <h2>
                             {internship.title}
@@ -177,7 +177,7 @@ function InternshipDetails() {
                     </p>
 
 
-                    <div className="row mt-4">
+                    <div className="row g-3 mt-4">
 
                         <div className="col-md-6">
 
@@ -255,7 +255,7 @@ function InternshipDetails() {
                     {/* APPLY BUTTON */}
 
                     <button
-                        className="btn btn-primary btn-lg"
+                        className="btn btn-primary btn-lg w-100 w-sm-auto"
                         onClick={handleApply}
                     >
                         Apply for Internship <i className="bi bi-arrow-right ms-2"></i>

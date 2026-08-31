@@ -87,7 +87,7 @@ function Conversation() {
     let lastDate = "";
 
     return (
-        <div className="d-flex flex-column" style={{ height: "calc(100vh - 140px)", minHeight: "560px" }}>
+        <div className="d-flex flex-column" style={{ height: "calc(100vh - 120px)", minHeight: "480px" }}>
             {/* HEADER */}
             <div className="card border-0 shadow-sm rounded-4 mb-3 flex-shrink-0">
                 <div className="card-body py-3 px-3 px-md-4 d-flex align-items-center justify-content-between">
@@ -134,7 +134,7 @@ function Conversation() {
                                     {showDate && <div className="text-center my-3"><span className="bg-white border rounded-pill px-3 py-1 small text-muted shadow-sm" style={{ fontSize: "0.72rem" }}>{msgDate}</span></div>}
                                     <div className={`d-flex ${mine ? "justify-content-end" : "justify-content-start"} mb-1`}>
                                         {!mine && <div className="bg-white border rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 me-2 align-self-end" style={{ width: "28px", height: "28px", fontSize: "0.7rem", fontWeight: 700 }}>M</div>}
-                                        <div className={`position-relative px-3 py-2 shadow-sm ${mine ? "bg-primary text-white" : "bg-white border"}`} style={{ maxWidth: "72%", borderRadius: mine ? "18px 18px 4px 18px" : "18px 18px 18px 4px" }}>
+                                        <div className={`position-relative px-3 py-2 shadow-sm ${mine ? "bg-primary text-white" : "bg-white border"}`} style={{ maxWidth: "min(72%, 320px)", borderRadius: mine ? "18px 18px 4px 18px" : "18px 18px 18px 4px" }}>
                                             <div style={{ fontSize: "0.92rem", lineHeight: 1.45, wordBreak: "break-word" }}>{msg.message}</div>
                                             <div className={`d-flex align-items-center gap-1 mt-1 ${mine ? "justify-content-end" : "justify-content-start"}`} style={{ fontSize: "0.68rem", opacity: mine ? 0.85 : 0.65 }}>
                                                 <span>{formatTime(msg.createdAt)}</span>

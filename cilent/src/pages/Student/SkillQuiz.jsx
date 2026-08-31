@@ -47,19 +47,19 @@ function SkillQuiz() {
             </div>
 
             <div className="card border-0 shadow-sm rounded-4 mb-4">
-                <div className="card-body p-4">
+                <div className="card-body p-3 p-md-4">
                     <form onSubmit={generate} className="row g-3 align-items-end">
-                        <div className="col-md-5">
+                        <div className="col-12 col-md-5">
                             <label className="form-label fw-semibold small">Topic / Skill</label>
                             <input className="form-control" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="e.g. React, Python, DSA" />
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-12 col-sm-6 col-md-3">
                             <label className="form-label fw-semibold small">Difficulty</label>
                             <select className="form-select" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
                                 <option>Beginner</option><option>Intermediate</option><option>Advanced</option>
                             </select>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-12 col-sm-6 col-md-4">
                             <button type="submit" className="btn btn-primary w-100" disabled={loading}>
                                 {loading ? <><span className="spinner-border spinner-border-sm me-2"></span>Generating with AI...</> : <><i className="bi bi-stars me-2"></i>Generate Quiz</>}
                             </button>
@@ -73,7 +73,7 @@ function SkillQuiz() {
 
             {questions.length > 0 && !result && (
                 <div className="card border-0 shadow-sm rounded-4">
-                    <div className="card-body p-4">
+                    <div className="card-body p-3 p-md-4">
                         <h5 className="fw-bold mb-3">Questions</h5>
                         {questions.map((q, idx) => (
                             <div key={idx} className="border rounded-3 p-3 mb-3">
@@ -96,7 +96,7 @@ function SkillQuiz() {
 
             {result && (
                 <div className="card border-0 shadow-sm rounded-4 mt-4">
-                    <div className="card-body p-4 text-center">
+                    <div className="card-body p-3 p-md-4 text-center">
                         <div className={`d-inline-flex align-items-center justify-content-center rounded-circle mb-3 ${result.percentage >= 50 ? "bg-success bg-opacity-10 text-success" : "bg-danger bg-opacity-10 text-danger"}`} style={{ width: "80px", height: "80px" }}>
                             <span className="fw-bold fs-3">{result.percentage}%</span>
                         </div>

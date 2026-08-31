@@ -83,15 +83,15 @@ function FindMentors() {
 
     return (
 
-        <div className="container py-5">
+        <div className="container py-4 py-md-5">
 
             {/* ==================================
                 HEADER
             ================================== */}
 
-            <div className="text-center mb-5">
+            <div className="text-center mb-4 mb-md-5">
 
-                <h1 className="fw-bold">
+                <h1 className="fw-bold" style={{ fontSize: "clamp(1.5rem,4vw,2rem)" }}>
                     Find a Mentor
                 </h1>
 
@@ -181,18 +181,18 @@ function FindMentors() {
                 !error &&
                 mentors.length > 0 && (
 
-                    <div className="row g-4">
+                    <div className="row g-3 g-md-4">
 
                         {mentors.map((mentor) => (
 
                             <div
-                                className="col-md-6 col-lg-4"
+                                className="col-12 col-sm-6 col-lg-4"
                                 key={mentor._id}
                             >
 
                                 <div className="card h-100 border-0 shadow-sm">
 
-                                    <div className="card-body p-4 d-flex flex-column">
+                                    <div className="card-body p-3 p-md-4 d-flex flex-column">
 
 
                                         {/* ==============================

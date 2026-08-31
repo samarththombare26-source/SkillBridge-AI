@@ -25,10 +25,10 @@ function SavedItems() {
                 <p className="text-muted mb-0">Your bookmarked internships and courses.</p>
             </div>
 
-            <div className="row g-4">
-                <div className="col-lg-6">
+            <div className="row g-3 g-md-4">
+                <div className="col-12 col-lg-6">
                     <div className="card border-0 shadow-sm rounded-4 h-100">
-                        <div className="card-body p-4">
+                        <div className="card-body p-3 p-md-4">
                             <h5 className="fw-bold"><i className="bi bi-briefcase me-2 text-warning"></i>Saved Internships ({internships.length})</h5>
                             {internships.length === 0 ? (
                                 <div className="text-center py-4 text-muted">
@@ -52,9 +52,9 @@ function SavedItems() {
                     </div>
                 </div>
 
-                <div className="col-lg-6">
+                <div className="col-12 col-lg-6">
                     <div className="card border-0 shadow-sm rounded-4 h-100">
-                        <div className="card-body p-4">
+                        <div className="card-body p-3 p-md-4">
                             <h5 className="fw-bold"><i className="bi bi-book me-2 text-primary"></i>Saved Courses ({courses.length})</h5>
                             {courses.length === 0 ? (
                                 <div className="text-center py-4 text-muted">

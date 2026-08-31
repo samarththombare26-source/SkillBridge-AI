@@ -72,13 +72,13 @@ function CareerRoadmaps() {
 
     return (
 
-        <div className="container py-5">
+        <div className="container py-4 py-md-5">
 
             {/* HEADER */}
 
-            <div className="text-center mb-5">
+            <div className="text-center mb-4 mb-md-5">
 
-                <h1 className="fw-bold">
+                <h1 className="fw-bold" style={{ fontSize: "clamp(1.4rem,4vw,2rem)" }}>
 
                     <i className="bi bi-rocket-takeoff me-2"></i> Career Roadmaps
 
@@ -106,12 +106,12 @@ function CareerRoadmaps() {
 
             ) : (
 
-                <div className="row">
+                <div className="row g-3 g-md-4">
 
                     {roadmaps.map((roadmap) => (
 
                         <div
-                            className="col-md-6 col-lg-4 mb-4"
+                            className="col-12 col-sm-6 col-lg-4"
                             key={roadmap._id}
                         >
 

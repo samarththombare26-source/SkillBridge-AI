@@ -782,7 +782,7 @@ function MentorProfile() {
 
                                     {/* BUTTONS */}
 
-                                    <div className="d-flex gap-2">
+                                    <div className="d-flex gap-2 flex-wrap">
 
                                         <button
                                             type="button"
@@ -1336,7 +1336,7 @@ function MentorProfile() {
 
                                     {/* BUTTONS */}
 
-                                    <div className="d-flex gap-2">
+                                    <div className="d-flex gap-2 flex-wrap">
 
                                         <button
                                             type="button"

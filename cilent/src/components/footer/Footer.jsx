@@ -60,9 +60,9 @@ function Footer() {
                     </div>
                 </div>
                 <hr className="border-secondary mt-4" />
-                <div className="d-flex justify-content-between align-items-center py-3">
+                <div className="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 py-3 text-center text-sm-start">
                     <small>© 2026 SkillBridgeAI | All Rights Reserved</small>
-                    <a href="#home" className="top-btn"><i className="bi bi-arrow-up"></i></a>
+                    <a href="#home" className="top-btn flex-shrink-0"><i className="bi bi-arrow-up"></i></a>
                 </div>
             </div>
         </footer>

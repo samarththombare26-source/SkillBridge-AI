@@ -26,14 +26,14 @@ function Home() {
             <section className="py-5">
                 <div className="container">
                     <div className="cta-banner">
-                        <div className="row align-items-center">
-                            <div className="col-lg-8">
+                        <div className="row align-items-center g-3">
+                            <div className="col-12 col-lg-8">
                                 <h2 className="fw-bold">Ready to launch your career?</h2>
                                 <p className="mb-0 opacity-75">Join 10,000+ students using SkillBridgeAI to learn faster and get hired.</p>
                             </div>
-                            <div className="col-lg-4 text-lg-end mt-3 mt-lg-0">
-                                <Link to="/register" className="btn btn-light text-primary fw-bold me-2">Create Free Account</Link>
-                                <a href="#features" className="btn btn-outline-light">See Features</a>
+                            <div className="col-12 col-lg-4 text-lg-end mt-3 mt-lg-0 d-flex flex-wrap gap-2 justify-content-lg-end">
+                                <Link to="/register" className="btn btn-light text-primary fw-bold flex-fill flex-sm-grow-0">Create Free Account</Link>
+                                <a href="#features" className="btn btn-outline-light flex-fill flex-sm-grow-0">See Features</a>
                             </div>
                         </div>
                     </div>

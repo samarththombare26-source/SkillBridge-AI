@@ -47,7 +47,7 @@ function ResumePreview() {
     if (loading) {
 
         return (
-            <div className="container py-5 text-center">
+            <div className="container py-4 py-md-5 text-center">
 
                 <h4>
                     Loading Resume...
@@ -62,7 +62,7 @@ function ResumePreview() {
     if (!resume) {
 
         return (
-            <div className="container py-5">
+            <div className="container py-4 py-md-5">
 
                 <div className="alert alert-warning text-center">
 
@@ -114,7 +114,7 @@ function ResumePreview() {
 
             <div className="container mb-4">
 
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-between flex-wrap gap-2">
 
                     <button
                         className="btn btn-secondary"
@@ -149,7 +149,7 @@ function ResumePreview() {
                 id="resume-preview"
             >
 
-                <div className="bg-white shadow p-5">
+                <div className="bg-white shadow p-3 p-md-4 p-lg-5">
 
 
                     {/* ================================

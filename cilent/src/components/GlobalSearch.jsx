@@ -51,17 +51,25 @@ function GlobalSearch() {
 
     const hasResults = results.courses.length + results.internships.length + results.mentors.length > 0;
     const totalCount = results.courses.length + results.internships.length + results.mentors.length;
+    const [isMobile, setIsMobile] = useState(typeof window !== "undefined" ? window.innerWidth < 768 : false);
+    useEffect(() => {
+        const onResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener("resize", onResize);
+        return () => window.removeEventListener("resize", onResize);
+    }, []);
 
     return (
-        <div className="position-relative" style={{ width: "min(420px, 44vw)" }}>
+        <div className="global-search-wrap position-relative w-100 mx-auto" style={{ maxWidth: "420px", minWidth: 0 }}>
             <div
-                className="d-flex align-items-center bg-white border rounded-pill px-3 py-1 shadow-sm"
+                className="global-search-bar d-flex align-items-center bg-white border rounded-pill px-2 px-sm-3 py-1 shadow-sm overflow-hidden"
                 style={{
                     height: "42px",
+                    minWidth: 0,
+                    maxWidth: "100%",
                     borderColor: focused ? "#2563eb" : "#e2e8f0",
                     boxShadow: focused ? "0 0 0 4px rgba(37,99,235,0.12), 0 4px 12px rgba(15,23,42,0.06)" : "0 1px 3px rgba(15,23,42,0.04)",
                     transition: "all 0.2s ease",
-                    gap: "10px"
+                    gap: "8px"
                 }}
             >
                 <div className="d-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style={{ width: "28px", height: "28px", background: focused ? "#2563eb" : "#f1f5f9", color: focused ? "white" : "#64748b", transition: "all 0.2s" }}>
@@ -71,13 +79,14 @@ function GlobalSearch() {
                     ref={inputRef}
                     id="global-search-input"
                     type="text"
-                    className="border-0 flex-grow-1 bg-transparent"
-                    placeholder="Search courses, internships, mentors"
+                    className="border-0 flex-grow-1 bg-transparent text-truncate"
+                    placeholder="Search..."
+                    title="Search courses, internships, mentors"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     onFocus={() => { setFocused(true); if (query.length >= 2) setOpen(true); }}
                     onBlur={() => { setFocused(false); setTimeout(() => setOpen(false), 180); }}
-                    style={{ outline: "none", fontSize: "0.9rem", fontWeight: 500, color: "#0f172a" }}
+                    style={{ outline: "none", fontSize: "0.9rem", fontWeight: 500, color: "#0f172a", minWidth: 0, width: "100%", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}
                 />
                 <div className="d-flex align-items-center gap-1 flex-shrink-0">
                     {loading ? (
@@ -94,8 +103,8 @@ function GlobalSearch() {
             </div>
 
             {open && (
-                <div className="card border-0 shadow-lg position-absolute w-100 mt-2 overflow-hidden" style={{ zIndex: 1050, borderRadius: "1rem", border: "1px solid #eef1f6" }}>
-                    <div className="card-body p-0" style={{ maxHeight: "440px", overflowY: "auto" }}>
+                <div className="card border-0 shadow-lg position-absolute start-0 end-0 mt-2 overflow-hidden" style={{ zIndex: 1050, borderRadius: "1rem", border: "1px solid #eef1f6" }}>
+                    <div className="card-body p-0" style={{ maxHeight: isMobile ? "320px" : "440px", overflowY: "auto" }}>
                         {query.length < 2 ? (
                             <div className="p-4 text-center">
                                 <div className="bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style={{ width: "40px", height: "40px" }}><i className="bi bi-stars"></i></div>
@@ -128,13 +137,13 @@ function GlobalSearch() {
                                             <small className="text-muted fw-bold" style={{ fontSize: "0.7rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Courses • {results.courses.length}</small>
                                         </div>
                                         {results.courses.map((c) => (
-                                            <button key={c._id} className="btn w-100 text-start d-flex align-items-center gap-3 p-2 mt-1 border-0 rounded-3" style={{ background: "white" }} onMouseDown={() => { navigate(`/student/course/${c._id}`); setOpen(false); setQuery(""); }} onMouseEnter={(e) => e.currentTarget.style.background = "#f8fafc"} onMouseLeave={(e) => e.currentTarget.style.background = "white"}>
-                                                <span className="bg-primary bg-opacity-10 text-primary rounded-2 d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: "36px", height: "36px" }}><i className="bi bi-book"></i></span>
-                                                <span className="flex-grow-1 text-start">
-                                                    <span className="d-block fw-semibold" style={{ fontSize: "0.88rem", color: "#0f172a" }}>{c.title}</span>
-                                                    <small className="text-muted" style={{ fontSize: "0.75rem" }}>{c.category} • {c.level || "All levels"}</small>
+                                            <button key={c._id} className="btn w-100 text-start d-flex align-items-center gap-2 gap-sm-3 p-2 mt-1 border-0 rounded-3" style={{ background: "white", minWidth: 0 }} onMouseDown={() => { navigate(`/student/course/${c._id}`); setOpen(false); setQuery(""); }} onMouseEnter={(e) => e.currentTarget.style.background = "#f8fafc"} onMouseLeave={(e) => e.currentTarget.style.background = "white"}>
+                                                <span className="bg-primary bg-opacity-10 text-primary rounded-2 d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: "32px", height: "32px", minWidth: "32px" }}><i className="bi bi-book" style={{ fontSize: "0.85rem" }}></i></span>
+                                                <span className="flex-grow-1 text-start" style={{ minWidth: 0, overflow: "hidden" }}>
+                                                    <span className="d-block fw-semibold text-truncate" style={{ fontSize: "0.88rem", color: "#0f172a", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{c.title}</span>
+                                                    <small className="text-muted text-truncate d-block" style={{ fontSize: "0.75rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{c.category} • {c.level || "All levels"}</small>
                                                 </span>
-                                                <i className="bi bi-arrow-right text-muted small"></i>
+                                                <i className="bi bi-arrow-right text-muted small flex-shrink-0"></i>
                                             </button>
                                         ))}
                                     </div>
@@ -146,13 +155,13 @@ function GlobalSearch() {
                                             <small className="text-muted fw-bold" style={{ fontSize: "0.7rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Internships • {results.internships.length}</small>
                                         </div>
                                         {results.internships.map((it) => (
-                                            <button key={it._id} className="btn w-100 text-start d-flex align-items-center gap-3 p-2 mt-1 border-0 rounded-3" style={{ background: "white" }} onMouseDown={() => { navigate(`/student/internship/${it._id}`); setOpen(false); setQuery(""); }} onMouseEnter={(e) => e.currentTarget.style.background = "#f8fafc"} onMouseLeave={(e) => e.currentTarget.style.background = "white"}>
-                                                <span className="bg-warning bg-opacity-10 text-warning rounded-2 d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: "36px", height: "36px" }}><i className="bi bi-briefcase"></i></span>
-                                                <span className="flex-grow-1 text-start">
-                                                    <span className="d-block fw-semibold" style={{ fontSize: "0.88rem", color: "#0f172a" }}>{it.title || it.role}</span>
-                                                    <small className="text-muted" style={{ fontSize: "0.75rem" }}>{it.company || ""} {it.location ? `• ${it.location}` : ""}</small>
+                                            <button key={it._id} className="btn w-100 text-start d-flex align-items-center gap-2 gap-sm-3 p-2 mt-1 border-0 rounded-3" style={{ background: "white", minWidth: 0 }} onMouseDown={() => { navigate(`/student/internship/${it._id}`); setOpen(false); setQuery(""); }} onMouseEnter={(e) => e.currentTarget.style.background = "#f8fafc"} onMouseLeave={(e) => e.currentTarget.style.background = "white"}>
+                                                <span className="bg-warning bg-opacity-10 text-warning rounded-2 d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: "32px", height: "32px", minWidth: "32px" }}><i className="bi bi-briefcase" style={{ fontSize: "0.85rem" }}></i></span>
+                                                <span className="flex-grow-1 text-start" style={{ minWidth: 0, overflow: "hidden" }}>
+                                                    <span className="d-block fw-semibold text-truncate" style={{ fontSize: "0.88rem", color: "#0f172a", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{it.title || it.role}</span>
+                                                    <small className="text-muted text-truncate d-block" style={{ fontSize: "0.75rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{it.company || ""} {it.location ? `• ${it.location}` : ""}</small>
                                                 </span>
-                                                <i className="bi bi-arrow-right text-muted small"></i>
+                                                <i className="bi bi-arrow-right text-muted small flex-shrink-0"></i>
                                             </button>
                                         ))}
                                     </div>
@@ -164,13 +173,13 @@ function GlobalSearch() {
                                             <small className="text-muted fw-bold" style={{ fontSize: "0.7rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Mentors • {results.mentors.length}</small>
                                         </div>
                                         {results.mentors.map((m) => (
-                                            <button key={m._id} className="btn w-100 text-start d-flex align-items-center gap-3 p-2 mt-1 border-0 rounded-3" style={{ background: "white" }} onMouseDown={() => { navigate(`/student/mentor/${m._id}`); setOpen(false); setQuery(""); }} onMouseEnter={(e) => e.currentTarget.style.background = "#f8fafc"} onMouseLeave={(e) => e.currentTarget.style.background = "white"}>
-                                                <span className="bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: "36px", height: "36px", fontWeight: 700 }}>{m.name?.charAt(0) || "M"}</span>
-                                                <span className="flex-grow-1 text-start">
-                                                    <span className="d-block fw-semibold" style={{ fontSize: "0.88rem", color: "#0f172a" }}>{m.name}</span>
-                                                    <small className="text-muted" style={{ fontSize: "0.75rem" }}>{m.expertise}</small>
+                                            <button key={m._id} className="btn w-100 text-start d-flex align-items-center gap-2 gap-sm-3 p-2 mt-1 border-0 rounded-3" style={{ background: "white", minWidth: 0 }} onMouseDown={() => { navigate(`/student/mentor/${m._id}`); setOpen(false); setQuery(""); }} onMouseEnter={(e) => e.currentTarget.style.background = "#f8fafc"} onMouseLeave={(e) => e.currentTarget.style.background = "white"}>
+                                                <span className="bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: "32px", height: "32px", minWidth: "32px", fontWeight: 700, fontSize: "0.85rem" }}>{m.name?.charAt(0) || "M"}</span>
+                                                <span className="flex-grow-1 text-start" style={{ minWidth: 0, overflow: "hidden" }}>
+                                                    <span className="d-block fw-semibold text-truncate" style={{ fontSize: "0.88rem", color: "#0f172a", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{m.name}</span>
+                                                    <small className="text-muted text-truncate d-block" style={{ fontSize: "0.75rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{m.expertise}</small>
                                                 </span>
-                                                <i className="bi bi-arrow-right text-muted small"></i>
+                                                <i className="bi bi-arrow-right text-muted small flex-shrink-0"></i>
                                             </button>
                                         ))}
                                     </div>

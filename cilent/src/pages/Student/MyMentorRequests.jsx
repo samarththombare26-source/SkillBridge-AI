@@ -90,11 +90,11 @@ function MyMentorRequests() {
 
     return (
 
-        <div className="container py-5">
+        <div className="container py-4 py-md-5">
 
             {/* Header */}
 
-            <div className="d-flex justify-content-between align-items-center mb-4">
+            <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
 
                 <div>
 
@@ -210,7 +210,7 @@ function MyMentorRequests() {
                         {requests.map((request) => (
 
                             <div
-                                className="col-lg-6"
+                                className="col-12 col-lg-6"
                                 key={request._id}
                             >
 
@@ -294,7 +294,7 @@ function MyMentorRequests() {
 
                                         {/* Status */}
 
-                                        <div className="d-flex justify-content-between align-items-center">
+                                        <div className="d-flex justify-content-between align-items-center flex-wrap gap-2">
 
                                             <div>
 

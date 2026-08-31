@@ -32,14 +32,14 @@ function Contact() {
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit}>
-                                    <div className="row">
-                                        <div className="col-md-6 mb-3"><input type="text" name="name" className="form-control" placeholder="Your Name *" value={form.name} onChange={handleChange} /></div>
-                                        <div className="col-md-6 mb-3"><input type="email" name="email" className="form-control" placeholder="Your Email *" value={form.email} onChange={handleChange} /></div>
+                                    <div className="row g-0">
+                                        <div className="col-12 col-md-6 mb-3 pe-md-2"><input type="text" name="name" className="form-control" placeholder="Your Name *" value={form.name} onChange={handleChange} /></div>
+                                        <div className="col-12 col-md-6 mb-3 ps-md-2"><input type="email" name="email" className="form-control" placeholder="Your Email *" value={form.email} onChange={handleChange} /></div>
                                     </div>
                                     <div className="mb-3"><input type="text" name="subject" className="form-control" placeholder="Subject" value={form.subject} onChange={handleChange} /></div>
                                     <div className="mb-3"><textarea name="message" className="form-control" rows="4" placeholder="Write your message... *" value={form.message} onChange={handleChange}></textarea></div>
                                     {error && <div className="alert alert-danger py-2 small">{error}</div>}
-                                    <button type="submit" className="btn btn-primary"><i className="bi bi-send me-2"></i>Send Message</button>
+                                    <button type="submit" className="btn btn-primary w-100 w-sm-auto"><i className="bi bi-send me-2"></i>Send Message</button>
                                 </form>
                             )}
                         </div>
