@@ -2,6 +2,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 function Sidebar({ collapsed = false, mobileOpen = false, onToggle, onClose }) {
     const navigate = useNavigate(); const location = useLocation();
     const handleLogout = () => { localStorage.removeItem("token"); localStorage.removeItem("user"); navigate("/login"); };
+    const handleHelpSupport = () => { navigate("/student/help-support"); if (mobileOpen) onClose(); };
     const isActive = (path) => path === "/student" ? location.pathname === "/student" : location.pathname.startsWith(path);
     const menuItems = [
         { name: "Dashboard", path: "/student", icon: "bi-speedometer2" },
@@ -52,7 +53,7 @@ function Sidebar({ collapsed = false, mobileOpen = false, onToggle, onClose }) {
                 </nav>
             </div>
             <div className="sidebar-footer p-3">
-                <button className={`sidebar-footer-btn ${collapsed && !mobileOpen ? "justify-content-center" : ""}`}><i className="bi bi-question-circle"></i><span>{(!collapsed || mobileOpen) && "Help & Support"}</span></button>
+                <button className={`sidebar-footer-btn ${collapsed && !mobileOpen ? "justify-content-center" : ""}`} onClick={handleHelpSupport}><i className="bi bi-question-circle"></i><span>{(!collapsed || mobileOpen) && "Help & Support"}</span></button>
                 <button className={`sidebar-footer-btn danger ${collapsed && !mobileOpen ? "justify-content-center" : ""}`} onClick={handleLogout}><i className="bi bi-box-arrow-right"></i><span>{(!collapsed || mobileOpen) && "Logout"}</span></button>
             </div>
         </aside>

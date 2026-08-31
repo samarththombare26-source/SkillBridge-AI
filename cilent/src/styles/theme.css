@@ -388,3 +388,87 @@ p{overflow-wrap:break-word}
 .text-clamp-3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .gap-responsive{gap:clamp(.5rem,2vw,1rem)}
 .p-responsive{padding:clamp(1rem,3vw,2rem)}
+
+/* ==========================================
+    HELP & SUPPORT PAGE
+========================================== */
+.help-support-page .accordion-item {
+    border: 1px solid #eef1f6 !important;
+    border-radius: 1rem !important;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+.help-support-page .accordion-item:first-child {
+    border-radius: 1rem !important;
+}
+.help-support-page .accordion-button {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 1rem 1.25rem !important;
+    min-height: auto !important;
+    background: #fff !important;
+}
+.help-support-page .accordion-button:not(.collapsed) {
+    box-shadow: none !important;
+    background: #f8fafc !important;
+}
+.help-support-page .accordion-button::after {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%232563eb'%3E%3Cpath d='M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    background-position: center;
+}
+.help-support-page .accordion-button:not(.collapsed)::after {
+    transform: rotate(180deg);
+}
+.help-support-page .accordion-body {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+.help-support-page .btn-group {
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.help-support-page .btn-group .btn {
+    transition: all .2s ease;
+}
+.help-support-page .btn-group .btn.active {
+    box-shadow: 0 2px 8px rgba(37,99,235,.25);
+}
+.help-support-page .card {
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.help-support-page .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(15,23,42,.08) !important;
+}
+.help-support-page .alert {
+    animation: fadeUp .35s ease both;
+}
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Help & Support - Phone improvements */
+@media (max-width: 767.98px) {
+    .help-support-page .accordion-button {
+        padding: 0.85rem 1rem !important;
+        font-size: 0.88rem !important;
+    }
+    .help-support-page .accordion-body {
+        padding: 0.75rem 1rem !important;
+        font-size: 0.88rem !important;
+    }
+    .help-support-page .btn-group {
+        width: 100%;
+    }
+    .help-support-page .btn-group .btn {
+        flex: 1;
+        font-size: 0.8rem !important;
+        padding: 0.5rem 0.5rem !important;
+    }
+}

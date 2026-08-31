@@ -26,6 +26,14 @@ function Navbar({ profile, onToggle }) {
                 </div>
             </div>
             <div className="d-lg-none mt-2 w-100" style={{ minWidth: 0 }}><GlobalSearch /></div>
+            <div className="d-lg-none mt-2 d-flex align-items-center gap-2 w-100">
+                <Link to="/student/help-support" className="btn btn-primary rounded-pill px-3 py-2 d-flex align-items-center justify-content-center gap-1 flex-shrink-0" style={{ fontSize: "0.82rem", fontWeight: "600", border: "none" }}>
+                    <i className="bi bi-headset"></i> Support
+                </Link>
+                <Link to="/profile" className="btn btn-outline-primary rounded-pill px-3 py-2 d-flex align-items-center justify-content-center gap-1 flex-shrink-0" style={{ fontSize: "0.82rem", fontWeight: "600" }}>
+                    <i className="bi bi-person"></i> Profile
+                </Link>
+            </div>
         </nav>
     );
 }
