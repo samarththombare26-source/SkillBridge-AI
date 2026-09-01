@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function HelpSupport() {
@@ -6,6 +6,11 @@ function HelpSupport() {
     const [activeTab, setActiveTab] = useState("faq");
     const [searchQuery, setSearchQuery] = useState("");
     const [submitted, setSubmitted] = useState(false);
+
+    useEffect(() => {
+        console.log("HelpSupport page mounted");
+        console.log("Current path:", window.location.pathname);
+    }, []);
 
     const faqData = [
         {
