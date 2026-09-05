@@ -75,27 +75,27 @@ function Profile() {
                     </div>
                 </div>
                 {/* Profile row */}
-                <div className="px-3 px-md-4 pb-4" style={{ marginTop: "-52px", position: "relative" }}>
+                <div className="px-3 px-md-4 pb-4" style={{ marginTop: "-56px", position: "relative", zIndex: 1 }}>
                     <div className="d-flex flex-column flex-md-row align-items-center align-items-md-end gap-3 gap-md-4">
-                        <div className="position-relative flex-shrink-0">
+                        <div className="position-relative flex-shrink-0" style={{ marginTop: "0" }}>
                             <div className="rounded-circle d-flex align-items-center justify-content-center fw-bold text-white shadow" style={{ width: "96px", height: "96px", fontSize: "2rem", background: "linear-gradient(135deg, #2563eb, #1e3a8a)", border: "4px solid white", boxShadow: "0 8px 24px rgba(37,99,235,0.35)" }}>
                                 {initials}
                             </div>
                             <span className="position-absolute bottom-0 end-0 bg-success border border-2 border-white rounded-circle" style={{ width: "22px", height: "22px" }} title="Online"></span>
                         </div>
-                        <div className="flex-grow-1 text-center text-md-start min-width-0">
-                            <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-2">
-                                <h4 className="fw-bold mb-0">{profile?.name || name || "Your Name"}</h4>
+                        <div className="flex-grow-1 text-center text-md-start min-width-0 w-100" style={{ paddingTop: "12px" }}>
+                            <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-2 bg-white rounded-3 px-2 py-1 d-inline-flex" style={{ boxShadow: "0 1px 0 rgba(0,0,0,0.02)" }}>
+                                <h4 className="fw-bold mb-0 text-dark" style={{ lineHeight: "1.25" }}>{profile?.name || name || "Your Name"}</h4>
                                 <span className={`badge bg-${roleColor} bg-opacity-10 text-${roleColor} border border-${roleColor} border-opacity-25 text-capitalize`}><i className={`bi ${profile?.role === "mentor" ? "bi-person-workspace" : profile?.role === "admin" ? "bi-shield-lock" : "bi-mortarboard"} me-1`}></i>{profile?.role || "student"}</span>
                                 <span className="d-none d-md-inline text-muted">•</span>
                                 <small className="text-muted"><i className="bi bi-calendar3 me-1"></i>Joined {memberSince}</small>
                             </div>
-                            <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-2 mt-1 text-muted small">
+                            <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-2 mt-1 text-muted small bg-white rounded-3 px-2 py-1 d-inline-flex">
                                 <span><i className="bi bi-envelope me-1"></i>{profile?.email}</span>
                                 {phone && <><span className="d-none d-sm-inline">•</span><span><i className="bi bi-telephone me-1"></i>{phone}</span></>}
                             </div>
                         </div>
-                        <div className="d-flex gap-2 flex-shrink-0">
+                        <div className="d-flex gap-2 flex-shrink-0 align-self-center align-self-md-end mb-md-1">
                             <button className="btn btn-light border rounded-pill px-3" onClick={() => document.getElementById("edit-name")?.focus()}><i className="bi bi-pencil me-1"></i>Edit</button>
                             <span className="badge bg-success bg-opacity-10 text-success border d-none d-md-inline-flex align-items-center px-3"><i className="bi bi-patch-check-fill me-1"></i>Active</span>
                         </div>
