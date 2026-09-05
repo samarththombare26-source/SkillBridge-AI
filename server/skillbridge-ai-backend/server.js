@@ -52,13 +52,32 @@ const server = http.createServer(app);
 // SOCKET.IO
 // ==========================================
 
-const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
+const rawClientUrl = process.env.CLIENT_URL || "http://localhost:5173";
+const allowedOrigins = [
+  ...rawClientUrl.split(",").map((s) => s.trim()),
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "https://skill-bridge-ai-ten-ivory.vercel.app",
+  "https://skill-bridge-ai-st.vercel.app",
+].filter(Boolean);
+const uniqueOrigins = [...new Set(allowedOrigins)];
+
+const corsOptions = {
+    origin: function (origin, callback) {
+        // allow requests with no origin (mobile apps, curl, postman)
+        if (!origin) return callback(null, true);
+        if (uniqueOrigins.includes(origin) || origin.endsWith(".vercel.app")) {
+            return callback(null, true);
+        }
+        return callback(null, true); // allow all for now to prevent viva block - restrict later if needed
+    },
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+};
+
 const io = new Server(server, {
-    cors: {
-        origin: CLIENT_URL,
-        methods: ["GET", "POST"],
-        credentials: true
-    }
+    cors: corsOptions
 });
 
 // ==========================================
@@ -170,12 +189,7 @@ app.set("io", io);
 // MIDDLEWARE
 // ==========================================
 
-app.use(
-    cors({
-        origin: CLIENT_URL,
-        credentials: true
-    })
-);
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
